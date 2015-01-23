@@ -26,7 +26,7 @@ second.on('foo', function(){
   console.log('foo called');
 });
 
-// Emit an event on all sockets in this channel
+// Emit an event on all sockets in this channels
 channel.broadcast('foo'); // foo called
 
 // Disconnect from the channel
