@@ -21,6 +21,14 @@ var second = channel.connect();
 first.emit('update'); // socket called update
 second.emit('update'); // socket called update
 
+// We can push events to all sockets
+second.on('foo', function(){
+  console.log('foo called');
+});
+
+// Emit an event on all sockets in this channel
+channel.broadcast('foo'); // foo called
+
 // Disconnect from the channel
 first.disconnect();
 
