@@ -1,4 +1,4 @@
-var Emitter = require('component/emitter');
+var Emitter = require('component-emitter');
 
 module.exports = Tower;
 

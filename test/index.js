@@ -1,5 +1,5 @@
 var Tower = require('../');
-var assert = require('component/assert');
+var assert = require('assert');
 
 describe('Tower', function () {
 

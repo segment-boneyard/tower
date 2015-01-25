@@ -2,6 +2,12 @@
 
 Create groups of channels and connect to them with sockets.
 
+```
+npm install tower-channels
+```
+
+## Example
+
 ```js
 var io = require('segmentio/tower');
 var tower = new Tower();
