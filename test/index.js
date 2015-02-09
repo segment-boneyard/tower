@@ -85,4 +85,17 @@ describe('Tower', function () {
     assert.equal(Object.keys(tower.channels).length, 0);
   });
 
+  it('should send to all sockets on a channel', function (done) {
+    var tower = new Tower();
+    var channel = tower.channel('news');
+    var sock = channel.connect();
+    sock.on('delivery', function(data){
+      assert(data.title === 'Extra Extra!');
+      done();
+    });
+    tower.send('news', 'delivery', {
+      title: 'Extra Extra!'
+    });
+  });
+
 });

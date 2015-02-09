@@ -43,6 +43,20 @@ Tower.prototype.channel = function(name) {
 };
 
 /**
+ * Send data to a channel
+ *
+ * @param {String} channel
+ * @param {String} topic
+ * @param {Object} data
+ *
+ * @return {Tower}
+ */
+
+Tower.prototype.send = function(channel, topic, data) {
+  this.channel(channel).broadcast(topic, data);
+};
+
+/**
  * A channel is a group of sockets using a name. We can create
  * new connections to the channel and disconnect them.
  *
@@ -87,15 +101,15 @@ Channel.prototype.connect = function(options){
 /**
  * Broadcast an event to all connected sockets
  *
- * @param {String} name
+ * @param {String} topic
  * @param {*} data
  *
  * @return {void}
  */
 
-Channel.prototype.broadcast = function(name, data){
+Channel.prototype.broadcast = function(topic, data){
   this.sockets.forEach(function(socket){
-    socket.emit(name, data);
+    socket.emit(topic, data);
   });
 };
 
